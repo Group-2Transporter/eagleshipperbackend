@@ -94,12 +94,13 @@ public class TransporterService {
 		return ratingList;
 	}
 	// get number of rating's and number of persons
-	public ArrayList<Integer> getNumberOfRating(String transporterId) throws InterruptedException, ExecutionException{
+	public ArrayList<Float> getNumberOfRating(String transporterId) throws InterruptedException, ExecutionException{
 		Firestore fireStore = FirestoreClient.getFirestore();
-		ArrayList<Integer> al = new ArrayList<>();
+		ArrayList<Float> al = new ArrayList<>();
 		List<QueryDocumentSnapshot> list = fireStore.collection("Rating").document(transporterId).collection("Rating").get().get().getDocuments();	
-		Integer totalRating = 0;
-		al.add(list.size());
+		float totalRating = 0;
+		float size = list.size();
+		al.add(size);
 		for(QueryDocumentSnapshot queryDocument : list ) {
 			Rating rating = queryDocument.toObject(Rating.class);
 			int r = Integer.parseInt(rating.getRating());
