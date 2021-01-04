@@ -115,8 +115,8 @@ public class TransporterController {
 	
 	// get number of rating's and number of persons
 	@GetMapping("/rating/number/{transporterId}")
-	public ResponseEntity<ArrayList<Integer>> getNumberOfRating(@PathVariable String transporterId) throws ResourceNotFoundException, IOException, InterruptedException, ExecutionException {
-		return new ResponseEntity<ArrayList<Integer>>(transporterService.getNumberOfRating(transporterId),HttpStatus.OK);
+	public ResponseEntity<ArrayList<Float>> getNumberOfRating(@PathVariable String transporterId) throws ResourceNotFoundException, IOException, InterruptedException, ExecutionException {
+		return new ResponseEntity<ArrayList<Float>>(transporterService.getNumberOfRating(transporterId),HttpStatus.OK);
 	}
 				
 
